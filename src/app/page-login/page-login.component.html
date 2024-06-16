@@ -6,7 +6,7 @@
     instead.
   </p>
   <div class="form">
-    <form action="">
+    <form (submit)="processFormSubmission($event)">
       <div class="form__input">
         <label for="username">Username</label>
         <input type="text" name="username" id="username" />
@@ -16,8 +16,8 @@
         <input type="password" name="password" id="password" />
       </div>
       <div class="form__buttons">
-        <button class="button button--primary">Login</button>
-        <button class="button button--secondary">Clear</button>
+        <button type="submit" class="button button--primary">Login</button>
+        <button type="reset" class="button button--secondary">Clear</button>
       </div>
     </form>
   </div>

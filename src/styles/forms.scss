@@ -22,6 +22,11 @@
       min-width: 10rem;
       padding: 1rem 1rem;
       font-size: 1.1rem;
+      border: solid 1px $input_border_color;
+
+      &.invalid {
+        border-color: red;
+      }
     }
   }
 
@@ -31,5 +36,14 @@
     flex-flow: row nowrap;
     justify-content: space-around;
     gap: 1rem;    
+  }
+
+  &__messages {
+    display: none;
+    color: red;
+
+    &.show {
+      display: initial;
+    }
   }
 }

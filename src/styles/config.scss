@@ -25,6 +25,8 @@ $text_dark: color.scale($color_4, $lightness: -70%);
 $text_light: color.scale($color_1, $lightness: 30%);
 $url_color: $color_2;
 
+$input_border_color: $color_3;
+
 // --- text
 
 $base_font_size: 16px;
