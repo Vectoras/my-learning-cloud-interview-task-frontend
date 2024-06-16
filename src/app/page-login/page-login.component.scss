@@ -2,31 +2,4 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-
-  &__input {
-    margin: 2rem 0;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-
-    label {
-      font-size: 1.1rem;
-    }
-
-    input {
-      min-width: 10rem;
-      padding: 1rem 1rem;
-      font-size: 1.1rem;
-    }
-  }
-
-  &__buttons {
-    margin: 2rem 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    gap: 1rem;    
-  }
 }
