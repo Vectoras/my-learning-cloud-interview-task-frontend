@@ -1,0 +1,19 @@
+@import "../styles/config.scss";
+
+.app {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $page_bg_color;
+  width: 100vw;
+
+  header, main, footer {
+    width: 100%;
+  }
+
+  main {
+    flex: 1 0 100%;
+  }
+}

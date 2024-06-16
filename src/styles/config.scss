@@ -1,0 +1,30 @@
+// --- general
+
+$app_width: 1600px;
+$app_padding: 2rem;
+$app_header_height: 5rem;
+$app_footer_min_height: 10rem;
+
+// --- colors
+
+@use 'sass:color';
+
+// https://coolors.co/palette/f4f1de-e07a5f-3d405b-81b29a-f2cc8f
+$color_1: #f4f1de;
+$color_2: #e07a5f;
+$color_3: #3d405b;
+$color_4: #81b29a;
+$color_5: #f2cc8f;
+
+$page_bg_color: color.scale($color_1, $lightness: 80%);
+$app_header_color: $color_3;
+$app_footer_color: $color_3;
+
+$text_dark: color.scale($color_4, $lightness: -70%);
+$text_light: color.scale($color_1, $lightness: 30%);
+$url_color: $color_2;
+
+// --- text
+
+$base_font_size: 16px;
+$font_family: "sans-serif";

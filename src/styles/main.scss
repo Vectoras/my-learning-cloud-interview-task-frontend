@@ -1,0 +1,28 @@
+@import "./config.scss";
+
+// --- resets
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $url_color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// --- root level config
+
+:root {
+  font-size: $base_font_size;
+  font-family: $font_family;
+  color: $text_dark;
+}

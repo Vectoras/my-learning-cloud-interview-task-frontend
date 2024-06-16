@@ -1,0 +1,31 @@
+@import "../../styles/config.scss";
+
+.app-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $app_header_color;
+  height: $app_header_height;
+  padding: 0 $app_padding;
+  color: $text_light;
+
+  &__container {
+    flex: 0 0 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $app_width;
+  }
+
+  &__public {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+  }
+  &__private {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+  }
+}
