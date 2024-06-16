@@ -27,14 +27,6 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
-    gap: 1rem;
-
-    button {
-      min-width: 10rem;
-      padding: 1rem 3rem;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
+    gap: 1rem;    
   }
 }

@@ -1,0 +1,31 @@
+@use 'sass:color';
+
+@import "./config.scss";
+
+
+.button {
+  min-width: $button_min_width;
+  padding: $button_padding ($button_padding+2rem);
+  font-size: $button_font_size;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: solid 1px transparent;
+
+  &--primary {
+    background-color: $color_4;
+    border-color: $color_3;
+
+    &:hover {
+      background-color: color.scale($color_4, $lightness: -10%);
+    }
+  }
+
+  &--secondary {
+    background-color: $color_5;
+    border-color: $color_3;
+
+    &:hover {
+      background-color: color.scale($color_5, $lightness: -10%);
+    }
+  }
+}

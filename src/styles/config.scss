@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // --- general
 
 $app_width: 1600px;
@@ -7,7 +9,6 @@ $app_footer_min_height: 10rem;
 
 // --- colors
 
-@use 'sass:color';
 
 // https://coolors.co/palette/f4f1de-e07a5f-3d405b-81b29a-f2cc8f
 $color_1: #f4f1de;
@@ -28,3 +29,10 @@ $url_color: $color_2;
 
 $base_font_size: 16px;
 $font_family: "sans-serif";
+
+
+// --- buttons
+
+$button_min_width: 10rem;
+$button_padding: 1rem;
+$button_font_size: 1.1rem;
