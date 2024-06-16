@@ -6,6 +6,17 @@
     instead.
   </p>
   <div class="form">
+    <!-- validation messages -->
+    <p
+      class="form__messages"
+      [ngClass]="{
+        valid: validState === 'valid',
+        invalid: validState === 'invalid',
+
+      }"
+    >
+      {{ validationMessage }}
+    </p>
     <form (submit)="processFormSubmission($event)">
       <div class="form__input">
         <label for="username">Username</label>

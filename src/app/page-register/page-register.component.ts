@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {NgClass} from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-page-register',
@@ -10,10 +10,10 @@ import {NgClass} from '@angular/common';
   styleUrl: './page-register.component.scss',
 })
 export class PageRegisterComponent {
-
   // state
 
-  isValidForm = true;
+  validState: "valid" | "invalid" | null = null;
+  validationMessage = "";
 
   // methods
 
@@ -30,19 +30,24 @@ export class PageRegisterComponent {
     const formData = new FormData(e.target);
 
     // validate
-    this.isValidForm = this.checkIfValidForm(formData);
+    const isValidForm = this.checkIfValidForm(formData);
 
-    // debug
+    // action based on validation
+    if(isValidForm) {
+      e.target.reset();
+      this.validationMessage = 'Successfully submitted';
+      this.validState = "valid";
+      // debug
     console.log(formData);
+    } else {
+      this.validationMessage = 'Please review the invalid fields!';
+      this.validState = "invalid";
+    }
   }
 
   invalidateField(fieldName: string): void {
     const fieldEl = document.querySelector(`input[name='${fieldName}']`);
     fieldEl?.classList.add('invalid');
-
-    console.log('fieldName: ', fieldName);
-    console.log('fieldEl: ', fieldEl);
-
   }
 
   removeFiedlInvalidation(fieldName: string): void {
@@ -51,7 +56,6 @@ export class PageRegisterComponent {
   }
 
   checkIfValidForm(formData: FormData): boolean {
-
     // assume it will be valid and check bellow
     let isValid = true;
 
@@ -59,15 +63,15 @@ export class PageRegisterComponent {
 
     const firstname = formData.get('firstname');
     // check if exists
-    if(!firstname) {
+    if (!firstname) {
       this.invalidateField('firstname');
       isValid = false;
-    } 
+    }
     // check if valid (only alphabetic characters)
     else if (!firstname.toString().match(/^[a-zA-Z]*$/)) {
       this.invalidateField('firstname');
       isValid = false;
-    } 
+    }
     // remove invalidation in case it has been placed before
     else {
       this.removeFiedlInvalidation('firstname');
@@ -77,15 +81,15 @@ export class PageRegisterComponent {
 
     const lastname = formData.get('lastname');
     // check if exists
-    if(!lastname) {
+    if (!lastname) {
       this.invalidateField('lastname');
       isValid = false;
-    } 
+    }
     // check if valid (only alphabetic characters)
     else if (!lastname.toString().match(/^[a-zA-Z]*$/)) {
       this.invalidateField('lastname');
       isValid = false;
-    } 
+    }
     // remove invalidation in case it has been placed before
     else {
       this.removeFiedlInvalidation('lastname');
@@ -95,10 +99,10 @@ export class PageRegisterComponent {
 
     const email = formData.get('email');
     // check if exists
-    if(!email) {
+    if (!email) {
       this.invalidateField('email');
       isValid = false;
-    } 
+    }
     // check if valid (username@domain.tld)
     else if (!email.toString().match(/^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/)) {
       this.invalidateField('email');
@@ -113,7 +117,7 @@ export class PageRegisterComponent {
 
     const dob = formData.get('dob');
     // check if exists
-    if(!dob) {
+    if (!dob) {
       this.invalidateField('dob');
       isValid = false;
     }
@@ -126,15 +130,15 @@ export class PageRegisterComponent {
 
     const username = formData.get('username');
     // check if exists
-    if(!username) {
+    if (!username) {
       this.invalidateField('username');
       isValid = false;
-    } 
+    }
     // check if valid (only alphabetic characters and digits)
     else if (!username.toString().match(/^[a-zA-Z0-9]*$/)) {
       this.invalidateField('username');
       isValid = false;
-    } 
+    }
     // remove invalidation in case it has been placed before
     else {
       this.removeFiedlInvalidation('username');
@@ -144,12 +148,18 @@ export class PageRegisterComponent {
 
     const password = formData.get('password');
     // check if exists
-    if(!password) {
+    if (!password) {
       this.invalidateField('password');
       isValid = false;
-    } 
+    }
     // check if valid (min 8 charcters of which at least on uppercase, one lowercase, one digit, one special)
-    else if (!password.toString().match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)) {
+    else if (
+      !password
+        .toString()
+        .match(
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
+        )
+    ) {
       this.invalidateField('password');
       isValid = false;
     }
@@ -157,7 +167,6 @@ export class PageRegisterComponent {
     else {
       this.removeFiedlInvalidation('password');
     }
-
 
     // return valid status
     return isValid;

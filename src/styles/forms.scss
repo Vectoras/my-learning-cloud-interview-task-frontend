@@ -40,10 +40,15 @@
 
   &__messages {
     display: none;
-    color: red;
-
-    &.show {
+    
+    &.invalid {
       display: initial;
+      color: red;
+    }
+
+    &.valid {
+      display: initial;
+      color: forestgreen;
     }
   }
 }

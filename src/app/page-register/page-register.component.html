@@ -10,10 +10,12 @@
     <p
       class="form__messages"
       [ngClass]="{
-        show: !isValidForm
+        valid: validState === 'valid',
+        invalid: validState === 'invalid',
+
       }"
     >
-      Please review the invalid fields!
+    {{ validationMessage }}
     </p>
 
     <form (submit)="processFormSubmission($event)">
